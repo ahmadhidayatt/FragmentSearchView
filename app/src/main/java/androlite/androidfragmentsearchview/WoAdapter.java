@@ -17,13 +17,13 @@ import java.util.List;
 /**
  * Created by janolaskar on 9/6/17.
  */
-public class WoAdapter extends RecyclerView.Adapter<WoAdapter.MyViewHolder>   {
+public class WoAdapter extends RecyclerView.Adapter<WoAdapter.MyViewHolder> {
     private static final String TAG = "WoAdapter";
     private WoAdapter conversation_adapter;
     private List<WoHolder> conversationList;
     private List<String> wo_name = new ArrayList<>();
     private Context mContext;
-   public SearchView searchView;
+    public SearchView searchView;
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -31,15 +31,13 @@ public class WoAdapter extends RecyclerView.Adapter<WoAdapter.MyViewHolder>   {
         public TextView name;
         public TextView last_message;
         public TextView date;
-
-
-
         public MyViewHolder(View view) {
             super(view);
             thumbnail = view.findViewById(R.id.img);
             name = view.findViewById(R.id.title);
             last_message = view.findViewById(R.id.message);
             date = view.findViewById(R.id.date);
+
 
         }
     }
@@ -67,10 +65,12 @@ public class WoAdapter extends RecyclerView.Adapter<WoAdapter.MyViewHolder>   {
         holder.name.setText(conversation.getTitle());
         holder.last_message.setText(conversation.getLastMessage());
         holder.date.setText(conversation.getDate());
+        if (getItemCount() == 0) {
+
+        }
 
 
-
-        Log.e(TAG, conversation.toCommValues()+"");
+        Log.e(TAG, conversation.toCommValues() + "");
 
         if (conversation.flag == 0) {
             holder.thumbnail.setImageResource(R.mipmap.logo_img1);

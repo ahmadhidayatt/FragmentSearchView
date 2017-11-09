@@ -16,7 +16,7 @@
         android:layout_width="55dp"
         android:layout_height="55dp"
         android:id="@+id/img"
-        android:src="@drawable/group_profile"
+        android:src="@mipmap/logo_img2"
         app:border="true"
         app:border_color="#EEEEEE"
         app:border_width="2dp"
