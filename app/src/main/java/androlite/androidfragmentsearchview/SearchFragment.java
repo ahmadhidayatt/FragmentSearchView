@@ -52,6 +52,9 @@ public class SearchFragment extends ListFragment implements SearchView.OnQueryTe
         ListView listView = (ListView) layout.findViewById(android.R.id.list);
         TextView emptyTextView = (TextView) layout.findViewById(android.R.id.empty);
         listView.setEmptyView(emptyTextView);
+        SearchView searchView = (SearchView)layout.findViewById(R.id.search) ;
+        searchView.setOnQueryTextListener(this);
+        searchView.setQueryHint("Search");
         return layout;
     }
 
@@ -59,9 +62,7 @@ public class SearchFragment extends ListFragment implements SearchView.OnQueryTe
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.search_menu, menu);
         MenuItem searchItem = menu.findItem(R.id.action_search);
-        SearchView searchView = (SearchView) searchItem.getActionView();
-        searchView.setOnQueryTextListener(this);
-        searchView.setQueryHint("Search");
+
 
         super.onCreateOptionsMenu(menu, inflater);
 
