@@ -67,20 +67,26 @@ public class PrivateChatAdapter extends BaseAdapter {
         params1.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
         // if message is mine then align to right
         if (message.person ==20002 || message.isMine) {
-            layout.setBackgroundResource(R.drawable.bubble2);
+            layout.setBackgroundResource(R.drawable.bubbles_white);
             avatar_not.setVisibility(View.GONE);
+            msg_status.setImageResource(R.drawable.pending_chat);
             parent_layout.setGravity(Gravity.RIGHT);
+            msg.setTextColor(Color.BLACK);
+            msg_time.setTextColor(Color.LTGRAY);
 
         }
         // If not mine then align to left
         else {
-            layout.setBackgroundResource(R.drawable.bubble1);
+            layout.setBackgroundResource(R.drawable.bubbles_red_2);
             avatar.setVisibility(View.GONE);
+            msg_status.setImageResource(R.drawable.pending_chat_white);
             parent_layout.setGravity(Gravity.LEFT);
+            msg.setTextColor(Color.WHITE);
+
         }
         avatar_not.setVisibility(View.GONE);
         avatar.setVisibility(View.GONE);
-        msg.setTextColor(Color.BLACK);
+
         return vi;
     }
 

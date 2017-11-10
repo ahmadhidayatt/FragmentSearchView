@@ -13,9 +13,9 @@ import java.util.Locale;
 
 public class CommonMethods {
     private static DateFormat dateFormat = new SimpleDateFormat("d/MMM/yyyy");
-    private static DateFormat timeFormat = new SimpleDateFormat("K:mm");
+    private static DateFormat timeFormat = new SimpleDateFormat("HH:mm");
     private static DateFormat fulldateFormat = new SimpleDateFormat("d/MMM/yyyy HH:mm:ss");
-    static SimpleDateFormat format_full = new SimpleDateFormat("d/MMM/yyyy HH:mm:ss", Locale.ENGLISH);
+    static SimpleDateFormat format_full = new SimpleDateFormat("d/MMM/yyyy HH:mm:ss",Locale.ENGLISH);
 
     public static String getCurrentTime() {
 

@@ -19,7 +19,7 @@ import java.util.List;
 
 public class ConversationList_backup extends Fragment {
 
-    private static final String TAG = "WoList";
+    private static final String TAG = "ConversationList";
     private boolean inBed = false;
     private List<WoHolder> conversationList = new ArrayList<>();
     private RecyclerView recyclerView;
@@ -39,7 +39,7 @@ public class ConversationList_backup extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View mRootView =  inflater.inflate(R.layout.wo_list_fragment, container, false);
-        recyclerView = mRootView.findViewById(R.id.recycler_view);
+        recyclerView = (RecyclerView) mRootView.findViewById(R.id.recycler_view);
 
         conversationList = new ArrayList<>();
         conversation_adapter = new ConversationAdapter_backup(conversationList);
@@ -51,10 +51,10 @@ public class ConversationList_backup extends Fragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(conversation_adapter);
 
-//        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new RecyclerTouchListener.ClickListener() {
+//        recyclerView.addOnItemTouchListener(new RecyclerTouchListenerObsolete(getActivity(), recyclerView, new RecyclerTouchListenerObsolete.ClickListener() {
 //            @Override
 //            public void onClick(View view, int position) {
-//                WoHolder chat_position = conversationList.get(position);
+//                ConversationHolder chat_position = conversationList.get(position);
 //                Toast.makeText(getActivity(), chat_position.getTitle() + " is selected!", Toast.LENGTH_SHORT).show();
 //                Intent intent = new Intent(getActivity(), PrivateChatList.class);
 //                intent .putExtra("name",chat_position.getTitle());
@@ -78,7 +78,7 @@ public class ConversationList_backup extends Fragment {
                     mOnMultipleLongClickListener.OnMultipleLongClickItem(a,pos,scope);
                     Log.e(TAG, checkedConversations.get(pos).getTitle());
                     boolean sameMuteState = true;
-//                    for (WoHolder conversationHolder : checkedConversations) {
+//                    for (ConversationHolder conversationHolder : checkedConversations) {
 //                        if (conversationHolder.message_scope.equals(Scope.GROUP)) {
 //                            String group_id = conversationHolder.f_pin;
 //                            GroupHolder groupHolder = GroupDB.get(group_id);
@@ -108,7 +108,7 @@ public class ConversationList_backup extends Fragment {
 //                        updateMenu(R.menu.menu_uc_multiplelongclick_mute);
 //                    }
 
-//                    Snackbar.make(WoList.this, a + " conversation Selected", Snackbar.LENGTH_INDEFINITE).setAction("OK", new View.OnClickListener() {
+//                    Snackbar.make(ConversationList.this, a + " conversation Selected", Snackbar.LENGTH_INDEFINITE).setAction("OK", new View.OnClickListener() {
 //                        @Override
 //                        public void onClick(View v) {
 //                            //

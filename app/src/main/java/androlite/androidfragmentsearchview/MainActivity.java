@@ -204,7 +204,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         GroupChatHolder holderss = new GroupChatHolder();
         holderss.setId(300);
         holderss.setPerson(20001);
-        holderss.setFriend(20002);
+        holderss.setGroups(20002);
         holderss.setMessage("Berbagai Macam Pake yang Tersedia");
         holderss.setWhen("13/Sep/2017 07:20:18");
         holderss.setDelivered("13/Sep/2017");

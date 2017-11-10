@@ -57,7 +57,7 @@ public class WoList extends Fragment implements SearchView.OnQueryTextListener {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(conversation_adapter);
 
-        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new RecyclerTouchListener.ClickListener() {
+        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new RecyclerClick_Listener() {
             @Override
             public void onClick(View view, int position) {
                 WoHolder chat_position = conversationList.get(position);

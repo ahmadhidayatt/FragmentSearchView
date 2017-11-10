@@ -1,0 +1,82 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+
+    <ListView
+        android:id="@+id/msgListView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/include"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:animateLayoutChanges="true"
+        android:clipToPadding="false"
+        android:scrollbarStyle="outsideOverlay"
+        android:divider="@null"
+        android:focusedByDefault="true"
+        android:footerDividersEnabled="false"
+        android:forceHasOverlappingRendering="true"
+        android:keyboardNavigationCluster="true"
+        android:paddingTop="?attr/actionBarSize"
+        android:paddingBottom="50dp"
+        android:scrollbars="none" />
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/custom_actionbar_chat" />
+
+
+
+        <LinearLayout
+            android:id="@+id/form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:background="@drawable/rounded_edittext"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/messageEditText"
+                android:layout_width="251dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginBottom="7dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="7dp"
+                android:layout_toLeftOf="@+id/sendMessageButton"
+                android:layout_weight="0.53"
+                android:background="@drawable/rounded_editlayout"
+                android:ems="15"
+                android:hint="Type something..."
+                android:maxHeight="80dp"
+                android:paddingLeft="15dp" />
+
+            <ImageButton
+                android:id="@+id/sendMessageButton"
+                android:layout_width="52dp"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center"
+                android:layout_marginRight="2dp"
+                android:background="@android:color/transparent"
+                android:paddingBottom="4dp"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:paddingTop="4dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/send_button"
+                android:text="d" />
+        </LinearLayout>
+
+
+</RelativeLayout>

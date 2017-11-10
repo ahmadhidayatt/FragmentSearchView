@@ -14,55 +14,22 @@ public class GroupChatDB extends DB{
     public static final String[] TABLE_FIELDS = new String[] {
             GroupChatHolder.FIELD__ID,
             GroupChatHolder.FIELD_PERSON,
-            GroupChatHolder.FIELD_FRIEND,
+            GroupChatHolder.FIELD_GROUP,
             GroupChatHolder.FIELD_MESSAGE,
             GroupChatHolder.FIELD_WHEN,
             GroupChatHolder.FIELD_DELIVERED,
             GroupChatHolder.FIELD_READ,
-//            WoHolder.FIELD_USER_ACCESS,
-//            WoHolder.FIELD_USER_CODE,
-//            WoHolder.FIELD_THUMB_ID,
-//            WoHolder.FIELD_QUOTE,
-//            WoHolder.FIELD_CONNECTED,
-//            WoHolder.FIELD_LAST_UPDATE,
-//            WoHolder.FIELD_NAME,
-//            WoHolder.FIELD_TIMEZONE,
-//            WoHolder.FIELD_EX_BUDDY_STATUS,
-//            WoHolder.FIELD_EX_BUDDY_BLOCK,
-//            WoHolder.FIELD_POSITION_ID,
-//            WoHolder.FIELD_POSITION_DESC,
-//            WoHolder.FIELD_MEDIA,
-//            WoHolder.FIELD_CONNECTION_ID,
-//            WoHolder.FIELD_EMAIL,
-//            WoHolder.FIELD_PHONE,
     };
     public static final String ALTER_QUERY = "";
     public static final String CREATE_QUERY = "CREATE TABLE \""+TABLE_NAME+"\" " +
             "(\""+ GroupChatHolder.FIELD__ID+"\" INTEGER PRIMARY KEY  NOT NULL " +
             ",\""+ GroupChatHolder.FIELD_PERSON+"\" INTEGER " +
-            ",\""+ GroupChatHolder.FIELD_FRIEND+"\" INTEGER " +
+            ",\""+ GroupChatHolder.FIELD_GROUP+"\" INTEGER " +
             ",\""+ GroupChatHolder.FIELD_MESSAGE+"\" TEXT" +
             ",\""+ GroupChatHolder.FIELD_WHEN+"\" TEXT" +
             ",\""+ GroupChatHolder.FIELD_DELIVERED+"\" TEXT" +
             ",\""+ GroupChatHolder.FIELD_READ+"\"TEXT)";
 
-
-//            ",\""+WoHolder.FIELD_USER_ACCESS+"\" TEXT UNIQUE" +
-//            ",\""+WoHolder.FIELD_USER_CODE+"\" TEXT" +
-//            ",\""+WoHolder.FIELD_THUMB_ID+"\" TEXT" +
-//            ",\""+WoHolder.FIELD_QUOTE+"\" TEXT" +
-//            ",\""+WoHolder.FIELD_CONNECTED+"\" TEXT" +
-//            ",\""+WoHolder.FIELD_LAST_UPDATE+"\" TEXT" +
-//            ",\""+WoHolder.FIELD_NAME+"\" TEXT" +
-//            ",\""+WoHolder.FIELD_TIMEZONE+"\" TEXT" +
-//            ",\""+WoHolder.FIELD_EX_BUDDY_STATUS+"\" TEXT" +
-//            ",\""+WoHolder.FIELD_EX_BUDDY_BLOCK+"\" TEXT" +
-//            ",\""+WoHolder.FIELD_POSITION_ID+"\" TEXT" +
-//            ",\""+WoHolder.FIELD_POSITION_DESC+"\" TEXT" +
-//            ",\""+WoHolder.FIELD_MEDIA+"\" TEXT" +
-//            ",\""+WoHolder.FIELD_CONNECTION_ID+"\" TEXT" +
-//            ",\""+WoHolder.FIELD_EMAIL+"\" TEXT" +
-//            ",\""+WoHolder.FIELD_PHONE+"\" TEXT)";
 
     public GroupChatDB(Context p_context) {
         super(p_context, TABLE_NAME);
@@ -148,7 +115,7 @@ public class GroupChatDB extends DB{
     }
 
     public interface FetchListener {
-        void onFetch(GroupChatHolder person);
+        public void onFetch(GroupChatHolder person);
     }
 
     public static String getCreateTableQuery() {

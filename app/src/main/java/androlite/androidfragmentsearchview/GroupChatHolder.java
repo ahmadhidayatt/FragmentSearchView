@@ -11,7 +11,7 @@ import android.graphics.drawable.Drawable;
 public class GroupChatHolder extends Holder{
     public static final String FIELD__ID = "_id";
     public static final String FIELD_PERSON = "person";
-    public static final String FIELD_FRIEND = "friend";
+    public static final String FIELD_GROUP = "groups";
     public static final String FIELD_MESSAGE = "message";
     public static final String FIELD_WHEN = "date";
     public static final String FIELD_DELIVERED = "delivered";
@@ -24,7 +24,7 @@ public class GroupChatHolder extends Holder{
 
     public String messages;
     public int person;//from
-    public int friend;//to
+    public int groups;//to
     public String senderName;
     public int id;
     public String Date, Time;
@@ -64,12 +64,12 @@ public class GroupChatHolder extends Holder{
         this.person = person;
     }
 
-    public int getFriend() {
-        return friend;
+    public int getGroups() {
+        return groups;
     }
 
-    public void setFriend(int friend) {
-        this.friend = friend;
+    public void setGroups(int Groups) {
+        this.groups = Groups;
     }
 
     public String getSenderName() {
@@ -125,14 +125,14 @@ public class GroupChatHolder extends Holder{
         this.id =id;
         this.messages = message;
         this.person = person;
-        this.friend = friend;
+        this.groups = friend;
         this.delivered = delivered;
         this.read = read;
     }
     public GroupChatHolder(String body, int sender, int receiver, String senderName, String date, String time, String delivered_Date_Time, String read_Date_Time) {
         this.messages = body;
         this.person = sender;
-        this.friend = receiver;
+        this.groups = receiver;
         this.senderName = senderName;
         Date = date;
         Time = time;
@@ -158,7 +158,7 @@ public class GroupChatHolder extends Holder{
 
             setId(p_cursor.getInt(0));
             person          = p_cursor.getInt(1);
-            friend    = p_cursor.getInt(2);
+            groups    = p_cursor.getInt(2);
             messages                  = p_cursor.getString(3);
             when        = p_cursor.getString(4);
             delivered        = p_cursor.getString(5);
@@ -175,7 +175,7 @@ public class GroupChatHolder extends Holder{
         ContentValues cvalues = new ContentValues();
         cvalues.put(FIELD__ID,                  id < 1 ? null : id);
         cvalues.put(FIELD_PERSON,         person);
-        cvalues.put(FIELD_FRIEND,   friend);
+        cvalues.put(FIELD_GROUP, groups);
         cvalues.put(FIELD_MESSAGE,                 messages);
         cvalues.put(FIELD_WHEN,       when);
         cvalues.put(FIELD_DELIVERED,       delivered);
@@ -205,7 +205,7 @@ public class GroupChatHolder extends Holder{
         messages = messageString;
         isMine = isMINE;
         person = Sender;
-        friend = Receiver;
+        groups = Receiver;
 //        senderName = person;
         image = images;
     }

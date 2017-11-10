@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class ConversationAdapter_backup extends RecyclerView.Adapter<ConversationAdapter_backup.MyViewHolder> {
 
-    private static final String TAG = "WoAdapter";
+    private static final String TAG = "ConversationAdapter";
 
     private List<WoHolder> conversationList;
 
@@ -28,9 +28,9 @@ public class ConversationAdapter_backup extends RecyclerView.Adapter<Conversatio
 
         public MyViewHolder(View view) {
             super(view);
-            title = view.findViewById(R.id.title);
-            message = view.findViewById(R.id.message);
-            date = view.findViewById(R.id.date);
+            title = (TextView) view.findViewById(R.id.title);
+            message = (TextView) view.findViewById(R.id.message);
+            date = (TextView) view.findViewById(R.id.date);
         }
     }
 

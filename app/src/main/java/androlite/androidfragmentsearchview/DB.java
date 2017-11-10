@@ -147,7 +147,7 @@ public abstract class DB {
         return cursor;
     }
 
-    public final Cursor rawQuery(String p_query, String[] p_fields) {
+    protected final Cursor rawQuery(String p_query, String[] p_fields) {
         Cursor cursor = null;
         try {
             cursor = mSQLite.rawQuery(p_query, p_fields);
@@ -156,7 +156,6 @@ public abstract class DB {
         }
         return cursor;
     }
-
 
     public void execQuery(String p_query) {
         try {

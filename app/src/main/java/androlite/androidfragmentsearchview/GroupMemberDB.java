@@ -104,7 +104,7 @@ public class GroupMemberDB extends DB {
     }
 
     public interface FetchListener {
-        void onFetch(GroupMemberHolder person);
+        public void onFetch(GroupMemberHolder person);
     }
 
     public static String getCreateTableQuery() {

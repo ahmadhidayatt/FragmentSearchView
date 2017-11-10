@@ -47,58 +47,76 @@ public class GroupChatAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        GroupChatHolder message = chatMessageList.get(position);
+
+        GroupChatHolder message = (GroupChatHolder) chatMessageList.get(position);
         View vi = convertView;
         if (convertView == null)
             vi = inflater.inflate(R.layout.chatbubble_group, null);
 
-        TextView msg = vi.findViewById(R.id.message_text);
-        TextView msg_time = vi.findViewById(R.id.message_time);
-        TextView username = vi.findViewById(R.id.name_text);
-        ImageView msg_status = vi.findViewById(R.id.message_status);
-        msg.setText(message.messages);
-        LinearLayout layout = vi
+        LinearLayout layout = (LinearLayout) vi
                 .findViewById(R.id.bubble_layout);
-        LinearLayout parent_layout = vi
+        LinearLayout parent_layout = (LinearLayout) vi
                 .findViewById(R.id.bubble_layout_parent);
-        LinearLayout layout_image = vi
+        LinearLayout layout_image = (LinearLayout) vi
                 .findViewById(R.id.layout_image);
-        ImageView avatar = vi.findViewById(R.id.avatar_me);
-        ImageView avatar_not = vi.findViewById(R.id.avatar_not_me);
+
+
+        TextView msg = (TextView) vi.findViewById(R.id.message_text);
+        TextView msg_time = (TextView) vi.findViewById(R.id.message_time);
+        TextView username = (TextView) vi.findViewById(R.id.name_text);
+
+        ImageView msg_status = (ImageView) vi.findViewById(R.id.message_status);
+        ImageView avatar = (ImageView) vi.findViewById(R.id.avatar_me);
+        ImageView avatar_not = (ImageView) vi.findViewById(R.id.avatar_not_me);
+
         avatar.setImageDrawable(message.image);
         avatar_not.setImageDrawable(message.image);
+
         RelativeLayout.LayoutParams params1 = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         params1.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
         // if message is mine then align to right
+
+
         avatar.setVisibility(View.GONE);
         avatar_not.setVisibility(View.VISIBLE);
         username.setVisibility(View.VISIBLE);
 
+
         if (message.isMine) {
-            layout.setBackgroundResource(R.drawable.bubble2);
+            layout.setBackgroundResource(R.drawable.bubbles_white);
             avatar_not.setVisibility(View.GONE);
             username.setGravity(Gravity.RIGHT);
             parent_layout.setGravity(Gravity.RIGHT);
             username.setVisibility(View.GONE);
             layout_image.setGravity(Gravity.TOP);
-
-
+            msg.setTextColor(Color.BLACK);
+            msg_status.setImageResource(R.drawable.pending_chat);
+            msg_time.setTextColor(Color.LTGRAY);
         }
         // If not mine then align to left
         else {
-            layout.setBackgroundResource(R.drawable.bubble1);
+            if (position > 0 & message.senderName == chatMessageList.get(position - 1).senderName) {
+
+            }
+            layout.setBackgroundResource(R.drawable.bubbles_red_2);
             avatar.setVisibility(View.GONE);
             username.setGravity(Gravity.LEFT);
             parent_layout.setGravity(Gravity.LEFT);
             username.setVisibility(View.VISIBLE);
+            msg.setTextColor(Color.WHITE);
+            msg_status.setImageResource(R.drawable.pending_chat_white);
 
         }
 
-        msg.setTextColor(Color.BLACK);
+        msg.setText(message.messages);
+        msg_time.setText(message.Time);
+        username.setText(message.senderName);
+
         return vi;
     }
 
     public void add(GroupChatHolder object) {
         chatMessageList.add(object);
     }
+
 }

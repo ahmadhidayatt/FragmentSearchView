@@ -19,22 +19,6 @@ public class PrivateChatDB extends DB{
             PrivateChatHolder.FIELD_WHEN,
             PrivateChatHolder.FIELD_DELIVERED,
             PrivateChatHolder.FIELD_READ,
-//            WoHolder.FIELD_USER_ACCESS,
-//            WoHolder.FIELD_USER_CODE,
-//            WoHolder.FIELD_THUMB_ID,
-//            WoHolder.FIELD_QUOTE,
-//            WoHolder.FIELD_CONNECTED,
-//            WoHolder.FIELD_LAST_UPDATE,
-//            WoHolder.FIELD_NAME,
-//            WoHolder.FIELD_TIMEZONE,
-//            WoHolder.FIELD_EX_BUDDY_STATUS,
-//            WoHolder.FIELD_EX_BUDDY_BLOCK,
-//            WoHolder.FIELD_POSITION_ID,
-//            WoHolder.FIELD_POSITION_DESC,
-//            WoHolder.FIELD_MEDIA,
-//            WoHolder.FIELD_CONNECTION_ID,
-//            WoHolder.FIELD_EMAIL,
-//            WoHolder.FIELD_PHONE,
     };
     public static final String ALTER_QUERY = "";
     public static final String CREATE_QUERY = "CREATE TABLE \""+TABLE_NAME+"\" " +
@@ -45,25 +29,6 @@ public class PrivateChatDB extends DB{
             ",\""+ PrivateChatHolder.FIELD_WHEN+"\" TEXT" +
             ",\""+ PrivateChatHolder.FIELD_DELIVERED+"\" TEXT" +
             ",\""+ PrivateChatHolder.FIELD_READ+"\"TEXT)";
-
-
-//            ",\""+WoHolder.FIELD_USER_ACCESS+"\" TEXT UNIQUE" +
-//            ",\""+WoHolder.FIELD_USER_CODE+"\" TEXT" +
-//            ",\""+WoHolder.FIELD_THUMB_ID+"\" TEXT" +
-//            ",\""+WoHolder.FIELD_QUOTE+"\" TEXT" +
-//            ",\""+WoHolder.FIELD_CONNECTED+"\" TEXT" +
-//            ",\""+WoHolder.FIELD_LAST_UPDATE+"\" TEXT" +
-//            ",\""+WoHolder.FIELD_NAME+"\" TEXT" +
-//            ",\""+WoHolder.FIELD_TIMEZONE+"\" TEXT" +
-//            ",\""+WoHolder.FIELD_EX_BUDDY_STATUS+"\" TEXT" +
-//            ",\""+WoHolder.FIELD_EX_BUDDY_BLOCK+"\" TEXT" +
-//            ",\""+WoHolder.FIELD_POSITION_ID+"\" TEXT" +
-//            ",\""+WoHolder.FIELD_POSITION_DESC+"\" TEXT" +
-//            ",\""+WoHolder.FIELD_MEDIA+"\" TEXT" +
-//            ",\""+WoHolder.FIELD_CONNECTION_ID+"\" TEXT" +
-//            ",\""+WoHolder.FIELD_EMAIL+"\" TEXT" +
-//            ",\""+WoHolder.FIELD_PHONE+"\" TEXT)";
-
     public PrivateChatDB(Context p_context) {
         super(p_context, TABLE_NAME);
     }
@@ -148,7 +113,7 @@ public class PrivateChatDB extends DB{
     }
 
     public interface FetchListener {
-        void onFetch(PrivateChatHolder person);
+        public void onFetch(PrivateChatHolder person);
     }
 
     public static String getCreateTableQuery() {

@@ -24,5 +24,4 @@ public abstract class Holder {
 
     public abstract ContentValues toInsertValues();
     public abstract ContentValues toCommValues();
-
 }

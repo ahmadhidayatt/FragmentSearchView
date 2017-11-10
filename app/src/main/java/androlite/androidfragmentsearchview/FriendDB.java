@@ -106,7 +106,7 @@ public class FriendDB extends DB {
     }
 
     public interface FetchListener {
-        void onFetch(FriendHolder person);
+        public void onFetch(FriendHolder person);
     }
 
     public static String getCreateTableQuery() {

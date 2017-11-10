@@ -20,7 +20,7 @@ public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.MyViewHolder
 
         public MyViewHolder(View view) {
             super(view);
-            title = view.findViewById(R.id.title);
+            title = (TextView) view.findViewById(R.id.title);
         }
     }
 

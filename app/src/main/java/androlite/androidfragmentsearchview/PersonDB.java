@@ -108,7 +108,7 @@ public class PersonDB extends DB {
     }
 
     public interface FetchListener {
-        void onFetch(PersonHolder person);
+        public void onFetch(PersonHolder person);
     }
 
     public static String getCreateTableQuery() {

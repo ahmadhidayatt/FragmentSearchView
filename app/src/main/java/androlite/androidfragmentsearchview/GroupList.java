@@ -38,7 +38,7 @@ public class GroupList extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View mRootView =  inflater.inflate(R.layout.group_list_fragment, container, false);
-        recyclerView = mRootView.findViewById(R.id.recycler_view);
+        recyclerView = (RecyclerView) mRootView.findViewById(R.id.recycler_view);
 
         groupList = new ArrayList<>();
         group_adapter = new GroupAdapter(groupList);
@@ -50,14 +50,15 @@ public class GroupList extends Fragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(group_adapter);
 
-        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new RecyclerTouchListener.ClickListener() {
+        recyclerView.addOnItemTouchListener(new RecyclerTouchListenerObsolete(getActivity(), recyclerView, new RecyclerTouchListenerObsolete.ClickListener() {
             @Override
             public void onClick(View view, int position) {
                 GroupHolder group_holder = groupList.get(position);
                 Toast.makeText(getActivity(), group_holder.getName() + " is selected!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(), GroupChatList.class);
                 intent .putExtra("name",group_holder.getName());
-                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                intent .putExtra("person_group",String.valueOf(group_holder._id));
+                intent.putExtra("conversation_message", "");
                 startActivity(intent);
             }
 
