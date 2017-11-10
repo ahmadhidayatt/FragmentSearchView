@@ -16,7 +16,7 @@
         android:layout_height="match_parent"/>
 
     <TextView
-        android:id="@android:id/empty"
+        android:id="@+id/empty"
         android:text="No results found."
         android:gravity="center"
         android:layout_width="match_parent"

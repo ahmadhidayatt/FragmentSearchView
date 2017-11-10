@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -97,8 +98,10 @@ public class WoList extends Fragment implements SearchView.OnQueryTextListener {
         }));
         conversation_adapter.searchView = (SearchView) mRootView.findViewById(R.id.search);
         conversation_adapter.searchView.setOnQueryTextListener(this);
-        conversation_adapter.searchView.setQueryHint("Search");
+        conversation_adapter.searchView.setQueryHint("Search WO yang tersedia");
+        conversation_adapter.searchView.setIconified(false);
         prepareConversationData();
+        TextView empty=(TextView) mRootView.findViewById(R.id.empty);
         return mRootView;
     }
 
@@ -190,31 +193,32 @@ public class WoList extends Fragment implements SearchView.OnQueryTextListener {
             return false;
         }
         try {
-            for(Iterator<WoHolder> it = conversationList.iterator(); it.hasNext();) {
-                WoHolder s = it.next();
-                conversationList.add(s);
-                Log.e(TAG, s.getTitle() );
-            }
-//            List<WoHolder> filteredValues = new ArrayList<WoHolder>(conversationList);
-//            for (WoHolder value : filteredValues) {
-//                wo_name.add(value.getTitle());
-//                if (!value.getTitle().toLowerCase().contains(newText.toLowerCase())) {
-//                    filteredValues.remove(value);
-//                    conversationList.add(value);
-//                }
+//            for(Iterator<WoHolder> it = conversationList.iterator(); it.hasNext();) {
+//                WoHolder s = it.next();
+//                conversationList.add(s);
+//                Log.e(TAG, s.getTitle() );
 //            }
+            ;
+            for (WoHolder value : conversationList) {
+                wo_name.add(value.getTitle());
+                if (!value.getTitle().toLowerCase().contains(newText.toLowerCase())) {
+                    conversationList.remove(value);
+//                    conversationList.add(value);
+                }
+            }
         } catch (Exception e) {
             Log.e(TAG, e.toString(),e.fillInStackTrace() );
         }
 
-        conversation_adapter = new WoAdapter(getContext(), conversationList);
+//        conversation_adapter = new WoAdapter(getContext(), conversationList);
         conversation_adapter.notifyDataSetChanged();
         return false;
     }
 
     public void resetSearch() {
-        conversation_adapter = new WoAdapter(getContext(), conversationList);
-        conversationList.add(null);
+//        conversation_adapter = new WoAdapter(getContext(), conversationList);
+        conversationList.removeAll(conversationList);
+       prepareConversationData();
         conversation_adapter.notifyDataSetChanged();
     }
 }
