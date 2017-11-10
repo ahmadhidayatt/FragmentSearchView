@@ -24,10 +24,10 @@
 
             <com.pkmmte.view.CircularImageView
                 android:id="@+id/group_member_image"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
                 android:layout_gravity="center"
-                android:src="@drawable/friends_profile"
+                android:src="@mipmap/wo_img4"
                 app:border="true"
                 app:border_color="#EEEEEE"
                 app:border_width="1dp"

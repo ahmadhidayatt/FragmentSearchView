@@ -17,7 +17,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -33,7 +32,8 @@ public class WoList extends Fragment implements SearchView.OnQueryTextListener {
     private RecyclerView recyclerView;
     private WoAdapter conversation_adapter;
     private ArrayAdapter<String> mAdapter;
-
+    private static final String EXTRA_IMAGE = "com.GroupView.janolaskar.easysoftchat.extraImage";
+    private static final String EXTRA_TITLE = "com.GroupView.janolaskar.easysoftchat.extraTitle";
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,17 +76,32 @@ public class WoList extends Fragment implements SearchView.OnQueryTextListener {
                 Toast.makeText(getActivity(), chat_position.getTitle() + " is selected!", Toast.LENGTH_SHORT).show();
 
                 if (chat_position.flag == DataGlobal.PRIVATE_MESSAGE) {
-                    Intent intent = new Intent(getActivity(), PrivateChatList.class);
-                    intent.putExtra("chat_group_message", chat_position._id);
+                    ViewModel mdl = new ViewModel(String.valueOf(chat_position.getTitle()),String.valueOf(R.mipmap.logo_img1));
+                    Intent intent = new Intent(getActivity(), GroupView.class);
                     intent.putExtra("name", chat_position.getTitle());
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                    startActivity(intent);
+                    intent.putExtra("id", 1);
+                    intent.putExtra(EXTRA_IMAGE, mdl.getImage());
+                    intent.putExtra(EXTRA_TITLE,mdl.getText());
+                    getContext().startActivity(intent);
+
+//                    Intent intent = new Intent(getActivity(), PrivateChatList.class);
+//                    intent.putExtra("chat_group_message", chat_position._id);
+//                    intent.putExtra("name", chat_position.getTitle());
+//                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+//                    startActivity(intent);
                 } else if (chat_position.flag == DataGlobal.GROUP_MESSAGE) {
-                    Intent intent = new Intent(getActivity(), GroupChatList.class);
-                    intent.putExtra("chat_group_message", chat_position._id);
+                    ViewModel mdl = new ViewModel(String.valueOf(chat_position.getTitle()),String.valueOf(R.mipmap.logo_img2));
+                    Intent intent = new Intent(getActivity(), GroupView.class);
                     intent.putExtra("name", chat_position.getTitle());
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                    startActivity(intent);
+                    intent.putExtra("id", 2);
+                    intent.putExtra(EXTRA_IMAGE, mdl.getImage());
+                    intent.putExtra(EXTRA_TITLE,mdl.getText());
+                    getContext().startActivity(intent);
+//                    Intent intent = new Intent(getActivity(), GroupChatList.class);
+//                    intent.putExtra("chat_group_message", chat_position._id);
+//                    intent.putExtra("name", chat_position.getTitle());
+//                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+//                    startActivity(intent);
                 }
             }
 

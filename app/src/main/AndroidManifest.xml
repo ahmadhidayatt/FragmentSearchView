@@ -4,7 +4,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/logo_wedding"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -23,6 +23,11 @@
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".GroupChatList"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity
+            android:name=".GroupView"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>

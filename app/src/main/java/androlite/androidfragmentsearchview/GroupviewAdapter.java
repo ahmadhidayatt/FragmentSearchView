@@ -1,8 +1,6 @@
 package androlite.androidfragmentsearchview;
 
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -44,19 +42,19 @@ public class GroupviewAdapter extends RecyclerView.Adapter<GroupviewAdapter.MyVi
     @Override
     public void onBindViewHolder(GroupviewAdapter.MyViewHolder myViewHolder, int position) {
         final PersonHolder person = PersonList.get(position);
-        myViewHolder.thumbnail.setImageResource(R.drawable.friends_profile);
+        myViewHolder.thumbnail.setImageResource(R.mipmap.wo_img4);
         myViewHolder.name.setText(person.name);
         Log.e(TAG, "onBindViewHolder: " + person.name);
         myViewHolder.container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    Intent intent = new Intent(mContext, PrivateChatList.class);
-                    Bundle extras = new Bundle();
-                    extras.putString("person_group",person._id+"");
-                    extras.putString("conversation_message","");
-                    extras.putString("name",person.name);
-                    intent.putExtras(extras);
-                    mContext.startActivity(intent);
+//                    Intent intent = new Intent(mContext, PrivateChatList.class);
+//                    Bundle extras = new Bundle();
+//                    extras.putString("person_group",person._id+"");
+//                    extras.putString("conversation_message","");
+//                    extras.putString("name",person.name);
+//                    intent.putExtras(extras);
+//                    mContext.startActivity(intent);
 
             }
         });

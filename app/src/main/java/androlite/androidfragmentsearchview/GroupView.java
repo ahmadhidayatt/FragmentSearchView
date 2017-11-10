@@ -50,6 +50,24 @@ public class GroupView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initActivityTransitions();
+        String name;
+        int id;
+
+        if (savedInstanceState == null) {
+            Bundle extras = getIntent().getExtras();
+            if (extras == null) {
+                name = null;
+                id = 0;
+
+            } else {
+                name = extras.getString("name");
+                id = extras.getInt("id");
+            }
+        } else {
+            name = (String) savedInstanceState.getSerializable("name");
+            id = (int) savedInstanceState.getSerializable("id");
+        }
+
         setContentView(R.layout.example);
 
         ViewCompat.setTransitionName(findViewById(R.id.app_bar_layout), EXTRA_IMAGE);
@@ -61,14 +79,14 @@ public class GroupView extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               onBackPressed();
+                onBackPressed();
             }
         });
         String itemTitle = getIntent().getStringExtra(EXTRA_TITLE);
         collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         collapsingToolbarLayout.setTitle(itemTitle);
-        collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(R.color.colorPrimaryDark));
-        collapsingToolbarLayout.setCollapsedTitleTextColor(getResources().getColor(android.R.color.background_dark));
+        collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(R.color.colorPink));
+        collapsingToolbarLayout.setCollapsedTitleTextColor(getResources().getColor(android.R.color.white));
 
 
         final ImageView image = (ImageView) findViewById(R.id.image);
@@ -88,7 +106,12 @@ public class GroupView extends AppCompatActivity {
 
             }
         });
-
+        if(id == 1){
+            image.setImageResource(R.mipmap.logo_img1);
+        }
+        else {
+            image.setImageResource(R.mipmap.logo_img2);
+        }
         recyclerView = (RecyclerView) findViewById(R.id.group_member_list);
         groupList = new ArrayList<>();
         groupAdapter = new GroupviewAdapter(getApplicationContext(), groupList);
