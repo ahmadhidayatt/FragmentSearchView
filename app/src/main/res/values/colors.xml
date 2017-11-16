@@ -8,4 +8,6 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorPink"> #e095e2</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="gold_yellow">#faea00</color>
+    <color name="light_grey">#c2c2c2</color>
 </resources>

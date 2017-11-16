@@ -14,11 +14,13 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.transition.Slide;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
@@ -37,8 +39,10 @@ public class GroupView extends AppCompatActivity {
     private CollapsingToolbarLayout collapsingToolbarLayout;
     private List<PersonHolder> groupList = new ArrayList<>();
     private RecyclerView recyclerView;
+    private TextView desc;
     public GroupviewAdapter groupAdapter;
     Toolbar toolbar;
+
 
     @Override
     public void onBackPressed() {
@@ -85,9 +89,9 @@ public class GroupView extends AppCompatActivity {
         String itemTitle = getIntent().getStringExtra(EXTRA_TITLE);
         collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         collapsingToolbarLayout.setTitle(itemTitle);
-        collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(R.color.colorPink));
+        collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(R.color.colorBlack));
         collapsingToolbarLayout.setCollapsedTitleTextColor(getResources().getColor(android.R.color.white));
-
+        desc = (TextView) findViewById(R.id.desciption);
 
         final ImageView image = (ImageView) findViewById(R.id.image);
         Picasso.with(this).load(getIntent().getStringExtra(EXTRA_IMAGE)).into(image, new Callback() {
@@ -106,11 +110,12 @@ public class GroupView extends AppCompatActivity {
 
             }
         });
-        if(id == 1){
+        if (id == 1) {
             image.setImageResource(R.mipmap.logo_img1);
-        }
-        else {
+            desc.setText(Html.fromHtml("<a>Kami menyediakan segala macam <br> yang berhubungan dengan resepsi pernikahan anda </br> yang berkualitas</a>"));
+        } else {
             image.setImageResource(R.mipmap.logo_img2);
+            desc.setText("Dengan Kami acara wedding anda \n akan lancar dan teratur");
         }
         recyclerView = (RecyclerView) findViewById(R.id.group_member_list);
         groupList = new ArrayList<>();

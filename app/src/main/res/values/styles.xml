@@ -32,5 +32,9 @@
         <item name="pressedTranslationZ">12dp</item>
         <item name="rippleColor">@android:color/white</item>
     </style>
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/gold_yellow</item>
+        <item name="colorControlActivated">@color/light_grey</item>
+    </style>
 
 </resources>

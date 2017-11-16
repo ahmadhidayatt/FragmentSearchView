@@ -248,7 +248,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         insert6 = dbsss.insertRecord(holderss.toCommValues(), true);
 
         holderss.setId(301);
-        holderss.setPerson(20003);
+        holderss.setPerson(20001);
         holderss.setGroups(300);
         holderss.setMessage("Berbagai macam paket weeding.");
         holderss.setWhen("13/Sep/2017 15:01:18");
